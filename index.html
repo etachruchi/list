@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -18,7 +21,7 @@
         <div class="header">
             <form>
                 <div class="icon">
-                    <a class="back" href="index.html">
+                    <a class="back" href="javascript:goback();">
                         <i class="material-icons"> arrow_back</i>
                     </a>
                 </div>
@@ -30,9 +33,10 @@
         </div>
         <div class="data">
             <br>
-            <ul class="liststyle">
+            <ul class="liststyle" data-toggle="modal" data-target="#myModal">
 
             </ul>
+
         </div>
         <div class="footer">
             <a href="#">
@@ -40,14 +44,28 @@
                  </i>
             </a>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Sub_list</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="sub_list1"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $(".back").click(function() {
-                window.history.back();
-
-            });
             sendRequest();
 
             function sendRequest() {
@@ -56,37 +74,29 @@
                     dataType: 'json',
                     success: function(result) {
                         $.each(result, function(i, data) {
-                            json_data = " <li class='content' id='" + data.id + "'></ul><input type='checkbox'class='checked' id='checkbox" + (i + 1) + "'><span class='box'> " + result[i].firstname + "</span><ul class='sub_list' id='list" + (i + 1) + "'>";
-                            $(".liststyle ").append(json_data);
+                            json_data = "<br><li class='content' id='" + data.id + "'></ul><input type='checkbox'class='checked' id='checkbox" + (i + 1) + "'><span class='box'> " + result[i].firstname + "</span><ul class='sub_list2' id='cont" + (i + 1) + "'>";
+                            $(".liststyle").append(json_data);
                         });
                         $("li").click(function() {
                             var userId = $(this).closest("li").attr("id");
                             var dataId = $(this).closest("json_data").attr("id");
+                            console.log(userId);
                             $.each(result, function(i, data) {
                                 if (userId == data.id) {
-                                    json_data = "<li>" + data.firstname + "</li><li>" + data.lastname + "</li><li>" + data.email + "</li>";
-
+                                    json_data = "<br><p class='fileopen'><b>Firstname:</b>" + data.firstname + "</p><p class='fileopen'><b>Lastname:</b>" + data.lastname + "</p><p class='fileopen'><b>Email:</b>" + data.email + "</p>";
+                                    $(".sub_list1").html(json_data);
                                 }
-                                console.log(json_data);
-                                $(".liststyle ").html(json_data);
                             });
                         });
 
-                        function handler(event, a, data) {
-                            var target = $(event.target);
-                            if (target.is("li")) {
-                                target.children().toggle();
-                            }
-                        }
-                        $("ul").click(handler).find("ul").hide();
+                        $(document).on('click', '.back', function(e) {
+                            $(".fileopen").hide();
+                        });
                     }
                 });
             }
         });
     </script>
-
-</html>
-
 </body>
 
-</html>
+</html>s

@@ -90,6 +90,19 @@ body {
     font-size: 32px;
 }
 
+.fileopen {
+    text-align: center;
+}
+
+.liststyle li span.box {
+    font-size: 15px;
+}
+
+#myModal {
+    background: none;
+    box-shadow: none;
+}
+
 @media (max-width: 425px) {
     .header,
     .footer {
