@@ -1,0 +1,82 @@
+[{
+        "value": "001",
+        "name": "Ruchi",
+        "parent": " ",
+        "child": [{
+                "value": "101",
+                "name": "gautam",
+                "parent": "001"
+            },
+            {
+                "value": "102",
+                "name": "ruchi@gmail.com",
+                "parent": "001"
+            }
+
+        ]
+    },
+
+    {
+        "value": "002",
+        "name": "Nidhi",
+        "parent": " ",
+        "child": [{
+                "value": "201",
+                "name": "sharma",
+                "parent": "002"
+            },
+            {
+                "value": "202",
+                "name": "nidhi@gmail.com",
+                "parent": "002"
+            }
+        ]
+    },
+    {
+        "value": "003",
+        "name": "shweta",
+        "parent": " ",
+        "child": [{
+                "value": "301",
+                "name": "Sharma",
+                "parent": "003"
+            },
+            {
+                "value": "302",
+                "name": "Shweta@gmail.com",
+                "parent": "003"
+            }
+        ]
+    }, {
+        "value": "003",
+        "name": "Abc",
+        "parent": " ",
+        "child": [{
+                "value": "301",
+                "name": "def",
+                "parent": "003"
+            },
+            {
+                "value": "302",
+                "name": "abc@gmail.com",
+                "parent": "003"
+            }
+        ]
+    },
+    {
+        "value": "003",
+        "name": "akariti",
+        "parent": " ",
+        "child": [{
+                "value": "301",
+                "name": "Dey",
+                "parent": "003"
+            },
+            {
+                "value": "302",
+                "name": "akariti@gmail.com",
+                "parent": "003"
+            }
+        ]
+    }
+]
